@@ -1,0 +1,8 @@
+function solve(one, two, three){
+
+    let result = ''
+
+    result = three + ' ' + two + ' ' + one
+
+    console.log(result)
+}
