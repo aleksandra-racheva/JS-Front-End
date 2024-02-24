@@ -1,0 +1,22 @@
+function solve(int){
+
+    var is_right = true
+    var sum = 0
+    var last_difit = int % 10
+
+    while (int > 0) {
+        if (last_difit == int % 10) {
+            sum += int % 10 
+           int =  Math.trunc(int / 10)
+        } else {
+            is_right = false
+            sum += int % 10 
+            int = Math.trunc(int / 10);
+        }
+    }
+    
+    console.log(is_right)
+    
+
+    console.log(sum)
+}
