@@ -1,0 +1,11 @@
+function solve(word, sentence) {
+    word = word.toLowerCase()
+    sentence = sentence.toLowerCase()
+
+    if (sentence.includes(word)) {
+        return word;
+    }
+
+    
+    return (`${word} not found!`)
+}
