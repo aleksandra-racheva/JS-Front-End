@@ -1,0 +1,16 @@
+function solve(arr) {
+    const sorted_arr = arr.sort((a, b) => (a - b))
+    const result = []
+
+    while (sorted_arr.length > 0) {
+        let firstnum = sorted_arr.shift()
+        let lastnum = sorted_arr.pop()
+        result.push(firstnum)
+
+        if (lastnum) {
+            result.push(lastnum)
+        }
+    }
+
+    return result;
+}
