@@ -1,0 +1,9 @@
+function solve(sentence) {
+    const pattern  = /#([a-zA-Z]+)/g;
+
+    const matches = sentence.matchAll(pattern)
+
+    for (const match of matches){
+        console.log(match[1])
+    }
+}
