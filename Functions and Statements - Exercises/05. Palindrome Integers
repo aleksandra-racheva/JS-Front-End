@@ -1,0 +1,12 @@
+function palidromes(nums) {
+
+    for (number of nums) {
+        const reversedNum = number.toString().split('').reverse().join('')
+        if (number == reversedNum) {
+            console.log('true')
+        } else {
+            console.log('false')
+        }
+    }
+    
+}
