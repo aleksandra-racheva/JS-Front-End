@@ -1,0 +1,15 @@
+function loader(number) {
+    let percents = Math.floor(number / 10)
+    let result = '%'.repeat(percents)
+    let dotted = result.padEnd(10, '.')
+    let final = '[' + dotted + ']'
+
+    if (number < 100) {
+        console.log(`${number}% ${final}`)
+        console.log('Still loading...')
+    } else {
+        console.log(`${number}% Complete!`)
+        console.log(`${final}`)
+    }
+   
+}
