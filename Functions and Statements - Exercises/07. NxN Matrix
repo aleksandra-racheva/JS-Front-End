@@ -1,0 +1,20 @@
+function matrix(number) {
+    let row = ''
+    let rows = []
+
+    for (n = 1; n <= number; n++){
+
+        for (num = 1; num <= number; num++){
+            row += number + ' '
+        }
+
+        rows.push(row)
+
+        row = ''
+    }
+
+    for (el of rows) {
+        console.log(el)
+    }
+   
+}
