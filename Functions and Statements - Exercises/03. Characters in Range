@@ -1,0 +1,23 @@
+function converter(val1, val2) {
+
+    let value1 = val1.charCodeAt()
+    let value2 = val2.charCodeAt()
+    let result_str = ''
+
+    if (value1 < value2) {
+
+        for (let val = value1 + 1; val < value2; val++) {
+
+            result_str += String.fromCharCode(val) + ' '
+
+        }
+    } else {
+        for (let val = value2 + 1; val < value1; val++) {
+
+            result_str += String.fromCharCode(val) + ' '
+
+        }
+    }
+
+    console.log(result_str);
+}
