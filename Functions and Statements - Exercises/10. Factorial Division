@@ -1,0 +1,21 @@
+function factorial(n, m) { 
+
+        var result = n;
+        var result2 = m;
+
+        if (n === 0 || n === 1) 
+          return 1; 
+        while (n > 1) { 
+          n--;
+          result *= n;
+        }
+
+        if (m === 0 || m === 1) 
+          return 1; 
+        while (m > 1) { 
+          m--;
+          result2 *= m;
+        }
+
+        return (`${(result / result2).toFixed(2)}`);
+}
