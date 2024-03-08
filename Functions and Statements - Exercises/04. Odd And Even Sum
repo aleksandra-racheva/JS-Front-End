@@ -1,0 +1,32 @@
+function converter(val) {
+    let value = val
+    let last_digit = 0
+    let even_array = []
+    let odd_array = []
+    let even_sum = 0
+    let odd_sum = 0
+
+    while (value.toString().length > 0 && value > 0) {
+
+        last_digit = value % 10
+        value = Math.floor(value / 10)
+
+        if (last_digit % 2 == 0) {
+            even_array.push(last_digit)
+        } else {
+            odd_array.push(last_digit)
+        }
+    }
+
+
+
+    even_array.forEach( num => {
+        even_sum += num;
+    })
+
+    odd_array.forEach( num => {
+        odd_sum += num;
+    })
+
+    console.log(`Odd sum = ${odd_sum}, Even sum = ${even_sum}`);
+}
