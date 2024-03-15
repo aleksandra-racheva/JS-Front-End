@@ -1,0 +1,8 @@
+function employees(names) { 
+
+  for (employee of names) {
+    let number = employee.length
+    console.log(`Name: ${employee} -- Personal Number: ${number}`)
+  }
+        
+}
