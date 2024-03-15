@@ -1,0 +1,10 @@
+function towns(info) { 
+
+  for (line of info) {
+    let [town, latitude, longitude] = line.split(' | ')
+    latitude = parseFloat(latitude)
+    longitude = parseFloat(longitude)
+    console.log(`{ town: '${town}', latitude: '${latitude.toFixed(2)}', longitude: '${longitude.toFixed(2)}' }`)
+  }
+        
+}
