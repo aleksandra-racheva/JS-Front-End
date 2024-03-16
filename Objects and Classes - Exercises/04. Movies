@@ -1,0 +1,31 @@
+function movies(input) { 
+  const movies = [];
+
+  for (const line of input) {
+    if (line.includes('addMovie')){
+        const movieName = line.substring('addMovie '.length)
+        const movie = {name: line.substring('addMovie '.length)}
+        movies.push(movie)
+    } else if (line.includes('directedBy')) {
+        const [movieName, director] = line.split(' directedBy ')
+        const movie = movies.find(movie => movie.name == movieName)
+        if (movie) {
+          movie.director = director
+        }
+
+    } else if (line.includes('onDate')){
+      const [movieName, date] = line.split(' onDate ')
+      const movie = movies.find(movie => movie.name == movieName)
+        if (movie) {
+          movie.date = date
+        }
+    }
+  }
+
+  movies
+    .filter(movie => movie.director && movie.date)
+    .forEach(movie => console.log(JSON.stringify(movie)));
+  
+  
+        
+}
