@@ -1,0 +1,40 @@
+function wordCounter(input) { 
+
+  const words = []
+  const sentence = []
+  const counted = []
+
+  for (let i = 0; i < input.length; i++) {
+      if (i == 0) {
+        let items = input[i].split(' ')
+        for (const item of items) {
+          words.push(item)
+        }
+      } else {
+        sentence.push(input[i])
+      }
+  }
+
+  for (const word of words) {
+    var count = 0;
+    for (const w of sentence) {
+      if (w == word){
+        count += 1
+      }
+    }
+
+    if (count > 0){
+      const currentWord = {word, count}
+      counted.push(currentWord)
+    }
+  }
+
+
+ 
+  counted.sort((a, b) => b.count - a.count)
+
+  for (const item of counted) {
+    console.log(`${item.word} - ${item.count}`)
+  }
+          
+}
