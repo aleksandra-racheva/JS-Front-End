@@ -1,0 +1,29 @@
+function piccolo(input) { 
+
+  const carNumbers = []
+
+  for (const line of input) {
+    let [command, number] = line.split(', ')
+    if (command == 'IN') {
+      if (!(carNumbers.includes(number))){
+      carNumbers.push(number)
+      }
+    } else if (command == 'OUT'){
+        if (carNumbers.includes(number)){
+          let index = carNumbers.findIndex(x => x == number);
+          carNumbers.splice(index, 1)
+        }
+    }
+    
+  }
+
+  carNumbers.sort((a, b) => a.localeCompare(b))
+
+  if (carNumbers.length > 0){
+    for (const number of carNumbers) {
+      console.log(number)
+    }   
+  } else {
+    console.log(`Parking Lot is Empty`)
+  }
+}
