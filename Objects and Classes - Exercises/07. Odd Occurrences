@@ -1,0 +1,40 @@
+function oddOccurences(input) { 
+
+  const result = []
+  const splitted = input.split(' ')
+  const toSearch = []
+  const arr = []
+
+  for (const iterator of splitted) {
+      let add = iterator.toLowerCase()
+      toSearch.push(add)
+  }
+
+  const words = input
+    .split(' ')
+    .reduce((result, word) => ({ ...result, [word.toLowerCase()]: 0}), {})
+
+  for (const word of toSearch) {
+    if (!(arr.includes(word))){
+      arr.push(word)
+    }
+  }
+
+  for (const word of toSearch) {
+    if (words.hasOwnProperty(word)){
+      words[word] += 1
+    }
+  }
+
+  
+
+  for (const word of arr) {
+    if (words.hasOwnProperty(word)){
+      if (!(words[word] % 2 == 0)){
+        result.push(word)
+      }
+    }
+  }
+
+  console.log(result.join(' '))
+}
