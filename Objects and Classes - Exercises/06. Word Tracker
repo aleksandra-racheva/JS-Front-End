@@ -1,3 +1,5 @@
+60/100
+
 function wordCounter(input) { 
 
   const words = []
@@ -37,4 +39,27 @@ function wordCounter(input) {
     console.log(`${item.word} - ${item.count}`)
   }
           
+}
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+100/100
+
+function wordCounter(input) { 
+
+  const words = input
+    .shift()
+    .split(' ')
+    .reduce((result, word) => ({ ...result, [word]: 0}), {})
+
+  for (const word of input) {
+    if (words.hasOwnProperty(word)){
+      words[word] += 1
+    }
+  }
+
+  Object.entries(words)
+    .sort((a, b) => b[1] - a[1])
+    .forEach(([word, occurences]) => console.log(`${word} - ${occurences}`))
 }
