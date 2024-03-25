@@ -1,0 +1,136 @@
+solution.js
+
+function solve() {
+  const textAreaElement = document.getElementById('input')
+  const text = textAreaElement.value;
+  const outputElement = document.getElementById('output')
+
+  const result = text  
+    .split('.')
+    .filter(sentence => sentence)
+    .reduce((result, sentence, i) => {
+      const resultIndex = Math.floor(i / 3)
+      if (!result[resultIndex]){
+        result[resultIndex] = []
+      }
+
+      result[resultIndex].push(sentence.trim());
+
+      return result;
+
+    }, [])
+    .map(sentences => `<p>${sentences.join('. ')}.</p>`)
+    .join('\n')
+
+  outputElement.innerHTML = result;
+}
+
+----------------------------------------------------------------------------------------------------------
+
+template.html
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="template.css">
+    <script src="solution.js"></script>
+    <title>Format the Text</title>
+</head>
+
+<body>
+    <h4>Create a functionality which formats the given text into paragraphs</h4>
+    <div id="exercise">
+        <textarea id="input" cols="30" rows="12"></textarea>
+        <button type="button" id="formatItBtn" onclick="solve()">Format</button>
+        <div id="output"></div>
+    </div>
+</body>
+
+</html>
+
+------------------------------------------------------------------------------------------------------------------
+
+template.css
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Lato", sans-serif;
+    font-size: 24px;
+    color: #234465;
+}
+body{
+    background-image: url('./softuni-wallpaper-5-1920x1080.jpg');
+}
+
+h4 {
+    width: 70%;
+    margin: 1% auto;
+    padding: 11px;
+    text-align: center;
+    color: white;
+}
+
+#exercise {
+    width: 78%;
+    margin: 3% auto;
+    padding: 1rem;
+    border: 1px solid lightgrey;
+    text-align: center;
+    background: radial-gradient(rgb(39, 38, 38), transparent);
+    box-shadow: 0px 5px 11px 2px white;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+input[type="button"], button {
+    padding: 0.3rem 0.5rem;
+    font-size: 1.1em;
+    min-width: 10%;
+    margin: 1rem 0;
+    border: none;
+    color: white;
+    background: #234465;
+    border-radius: 5px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0px;
+    cursor: pointer;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+}
+button:hover {
+    box-shadow: 1px 1px 14px 5px green;
+}
+
+textarea {
+    width: 90%;
+    padding: 1%;
+    word-wrap: break-word;
+    resize: none;
+    text-align: center;
+    font-size: 18px;
+    border:none;
+    box-shadow: 0px 5px 11px 2px lightslategrey;
+    outline: none;
+    background-color: rgba(255,255,255,0.6);
+}
+textarea:focus {
+    box-shadow: 1px 1px 14px 5px green;
+
+}
+#output p {
+    border-bottom: 1px solid lightgrey;
+    padding: 1%;
+    word-wrap: break-word;
+    color : white;
+}
+
